@@ -1,8 +1,14 @@
-// pull in whichever assert library you'd like to use
+const assert = require('assert');
+const productionFunctions = require('../hello-world');
 
-
-// pull in the main functions that will be tested
-
-
-// write the mocha describe() and it() function calls that will implement the test(s)
-
+describe('hello-world group', () => {
+  it('returns a sayHello greeting', () => {
+    const returnValue = productionFunctions.sayHello('Bobby');
+    assert.equal(returnValue, 'Hello, Bobby');
+  });
+  
+  it('returns a sayGoodbye string', () => {
+    const returnValue2 = productionFunctions.sayGoodbye('Bobby');
+    assert.equal(returnValue2, 'Goodbye, Bobby');
+  });
+});
